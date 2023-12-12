@@ -375,6 +375,13 @@ const pullRequestAzureRepoAction = (options) => {
       const organization = (_d = ctx.input.organization) != null ? _d : "notempty";
       const url = `https://${host}/${organization}`;
       const authHandler = azdev.getBearerHandler(ctx.input.token);
+      console.log("creating PR", {
+        token: ctx.input.token,
+        url,
+        authHandler,
+        repoId,
+        project
+      });
       await createADOPullRequest({
         gitPullRequestToCreate: pullRequest,
         url,

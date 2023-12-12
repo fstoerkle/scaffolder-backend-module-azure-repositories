@@ -130,6 +130,14 @@ export const pullRequestAzureRepoAction = (options: {
       // We assume we receive an OAuth access token, that we need to pass as bearer token
       const authHandler = getBearerHandler(ctx.input.token!);
 
+      console.log("creating PR", {
+        token: ctx.input.token,
+        url,
+        authHandler,
+        repoId,
+        project,
+      });
+
       await createADOPullRequest({
         gitPullRequestToCreate: pullRequest,
         url: url,
